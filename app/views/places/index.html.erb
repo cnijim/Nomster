@@ -4,5 +4,6 @@
         <h1><%= place.address %></h1><br /><br />
         <h1><%= place.description %></h1><br />
     </div>
-
 <% end %>
+<%= will_paginate @places, previous_label: h("<"), next_label: h(">") %>
+
