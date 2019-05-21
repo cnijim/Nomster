@@ -4,7 +4,7 @@ class PlacesController < ApplicationController
   def index
     @places = Place.order("name").page(params[:page]).per_page(5)
   end
-
+h
   def new
     @place = Place.new
   end
@@ -16,6 +16,22 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+  end
+
+  def edit
+    @place = Place.find(params[:id])
+  end
+
+  def update
+    @place = Place.find(params[:id])
+    @place.update_attributes(place_params)
+    redirect_to root_path
+  end
+
+  def destroy
+    @place = Place.find(params[:id])
+    @place.destroy
+    redirect_to root_path
   end
 
   private
